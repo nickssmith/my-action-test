@@ -1,19 +1,20 @@
+name: Pre-release-checks
 on: [push]
 
 jobs:
-  hello_world_job:
+  Pre-release-checks:
     runs-on: ubuntu-latest
-    name: A job to say hello
     steps:
-    - uses: actions/checkout@master
+    - name: Fetch the current master
+      uses: actions/checkout@master
       with:
-        fetch-depth: 0
         ref: master
-    - name: Hello world action step
-      id: hello
-      uses: bo-sfl/my-hello-world-action@prod
+        path: master
+    - name: Fetch the original template
+      uses: actions/checkout@master
       with:
-        who-to-greet: 'Mona the Octocat'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: git log
+        ref: template
+        path: template
+    - name: exam tree
+      id: exam-tree
+      uses: bo-sfl/my-hello-world-action@prod
