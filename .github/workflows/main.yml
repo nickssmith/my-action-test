@@ -10,23 +10,25 @@ jobs:
       with:
         ref: master
         path: master
+
     - name: Fetch the original template
       uses: actions/checkout@master
       with:
         ref: template
         path: template
+
     - name: exam tree
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
-    - name: find log
-      run: locate pre_release_check.log
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
+
     - name: Get the output time
       run: echo "The time was ${{ steps.release_check.outputs.message }}"
+      
     - name: TODO and commented out code checker
       uses: nickssmith/TODO_and_CommentedCode_Check@1.1
