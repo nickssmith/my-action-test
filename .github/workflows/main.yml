@@ -19,13 +19,6 @@ jobs:
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
     - name: Read package.json
-      id: package
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: $HOME/pre_release_check.log
-    - name: Echo package.json
-      run: echo ${{ steps.package.outputs.content }}
-    - name: Read package.json
       id: package2
       uses: juliangruber/read-file-action@v1
       with:
