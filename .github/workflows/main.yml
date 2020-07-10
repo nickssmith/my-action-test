@@ -18,6 +18,14 @@ jobs:
     - name: exam tree
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
+    - name: Read package.json
+      id: package
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./github/workspace/pre_release_check.log
+    - name: Echo package.json
+      run: echo ${{ steps.package.outputs.content }}
+
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
       env:
