@@ -1,0 +1,8 @@
+#!/bin/bash
+text_file=hiu
+ 
+if [ $(cat $text_file | wc -l) -eq 0 ]; then
+  echo "file is empty and has no lines"
+else
+  echo "text file has at least 1 line"
+fi
