@@ -22,6 +22,6 @@ jobs:
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: ${{ steps.release_check.outputs.messgae }}
+        SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
     - name: TODO and commented out code checker
       uses: nickssmith/TODO_and_CommentedCode_Check@1.1
