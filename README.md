@@ -7,11 +7,6 @@
 [![Build Status](https://travis-ci.org/anfederico/Clairvoyant.svg?branch=master)](https://travis-ci.org/anfederico/Clairvoyant)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 
-### Purpose (filled out at beginning)
-
-- The purpose of this project is ________.
-- Describe the main goals of the project and potential business impact.
-- Limit to a short paragraph, 3-6 Sentences.
 
 ### Project Description (filled out at beginning)
 
@@ -63,18 +58,16 @@ Index
 
 #### Docker Registry Dependencies
 
-(filled out when end-to-end testing commences) 
-
-- The docker registry address is ________.
-- The docker registry credential is ________.
-- Instruction to login registry: ________.
+- The docker registry address is updated.
+- The docker registry credential is updated.
+- Instruction to login registry: updated.
 
 #### Data Dependencies
 
 (filled out when end-to-end testing commences) 
 
-* For training, the input data is ________, which is A/B/C in configuration section X/Y/Z.
-* For inference, the input data is ________, which is A/B/C in configuration section X/Y/Z.
+* For training, the input data is updated, which is A/B/C in configuration section X/Y/Z.
+* For inference, the input data is updated, which is A/B/C in configuration section X/Y/Z.
 - Describe the input data/external data dependencies(e.g: pretrained model weight) for each functionality.
 
 ### Installation
@@ -203,9 +196,6 @@ To run:
     │   │   └── test_validate1.py: fill me
     │   │   └── test_validate2.py: fill me
 
-### Notes
-
-(filled out when end-to-end testing commences)
 
 ### Known Issues
 
