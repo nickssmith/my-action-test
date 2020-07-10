@@ -26,12 +26,12 @@ jobs:
     - name: Echo package.json
       run: echo ${{ steps.package.outputs.content }}
     - name: Read package.json
-      id: package２
+      id: package2
       uses: juliangruber/read-file-action@v1
       with:
         path: $GITHUB_WORKSPACE/pre_release_check.log
     - name: Echo package.json
-      run: echo ${{ steps.package１.outputs.content }}
+      run: echo ${{ steps.package2.outputs.content }}
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
