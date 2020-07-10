@@ -25,7 +25,7 @@ jobs:
         path: $HOME/pre_release_check.log
     - name: Echo package.json
       run: echo ${{ steps.package.outputs.content }}
-      - name: Read package.json
+    - name: Read package.json
       id: package２
       uses: juliangruber/read-file-action@v1
       with:
