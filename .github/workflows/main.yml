@@ -1,5 +1,5 @@
 name: Pre-release-checks
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   Pre-release-checks:
@@ -16,5 +16,6 @@ jobs:
         ref: template
         path: template
     - name: exam tree
-      id: exam-tree
       uses: bo-sfl/my-hello-world-action@prod
+    - name: TODO and commented out code checker
+      uses: nickssmith/TODO_and_CommentedCode_Check@1.1
