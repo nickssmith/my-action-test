@@ -16,12 +16,12 @@ jobs:
         ref: template
         path: template
     - name: exam tree
-      id: pre_release_check_here
+      id: release_check
       uses: bo-sfl/my-hello-world-action@prod
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: 'Post Content :rocket:'
+        SLACK_MESSAGE: ${{ steps.release_check.outputs.messgae }}
     - name: TODO and commented out code checker
       uses: nickssmith/TODO_and_CommentedCode_Check@1.1
