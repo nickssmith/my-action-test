@@ -22,9 +22,16 @@ jobs:
       id: package
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./github/workspace/pre_release_check.log
+        path: $HOME/pre_release_check.log
     - name: Echo package.json
       run: echo ${{ steps.package.outputs.content }}
+      - name: Read package.json
+      id: package２
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: $GITHUB_WORKSPACE/pre_release_check.log
+    - name: Echo package.json
+      run: echo ${{ steps.package１.outputs.content }}
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
