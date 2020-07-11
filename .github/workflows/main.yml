@@ -29,7 +29,7 @@ jobs:
       with:
         path: ./pre_release_check.log
 
-    - run: echo ${{ steps.hello1.outputs.text }}
+    - run: echo $(cat ./pre_release_check.log)
       if: always()
 
     - name: Slack Notification
