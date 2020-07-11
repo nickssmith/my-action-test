@@ -22,6 +22,15 @@ jobs:
     - name: exam tree
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
+    
+    - uses: pCYSl5EDgo/cat@master
+      id: hello1
+      with:
+        path: /github/workspace/pre_release_check.log
+
+    - run: echo it
+      env:
+        TEXT: ${{ steps.hello1.outputs.text }}
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
