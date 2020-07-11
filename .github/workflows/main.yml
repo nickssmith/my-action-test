@@ -10,12 +10,14 @@ jobs:
       with:
         ref: master
         path: master
+        lfs: False
 
     - name: Fetch the original template
       uses: actions/checkout@master
       with:
         ref: template
         path: template
+        lfs: False
 
     - name: exam tree
       id: release_check
@@ -27,10 +29,6 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
-
-    - name: Get the output time
-      if: always()
-      run: echo "The time was ${{ steps.release_check.outputs.message }}"
 
     - name: TODO and commented out code checker
       if: always()
