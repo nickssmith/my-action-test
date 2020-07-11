@@ -29,10 +29,8 @@ jobs:
       with:
         path: ./pre_release_check.log
 
-    - run: echo $TEXT
+    - run: echo ${{ steps.hello1.outputs.text }}
       if: always()
-      env:
-        TEXT: ${{ steps.hello.outputs.text }}
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
