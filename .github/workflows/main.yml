@@ -27,7 +27,7 @@ jobs:
       id: hello1
       if: always()
       with:
-        path: /github/workspace/pre_release_check.log
+        path: ./github/workspace/pre_release_check.log
 
     - run: echo $TEXT
       if: always()
