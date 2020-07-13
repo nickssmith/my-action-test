@@ -23,15 +23,6 @@ jobs:
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
 
-    - uses: pCYSl5EDgo/cat@master
-      id: hello1
-      if: always()
-      with:
-        path: ./pre_release_check.log
-
-    - run: echo $(cat ./pre_release_check.log)
-      if: always()
-
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
       if: always()
@@ -41,4 +32,5 @@ jobs:
 
     - name: TODO and commented out code checker
       if: always()
-      uses: nickssmith/TODO_and_CommentedCode_Check@1.1
+      uses: nickssmith/TODO_and_CommentedCode_Check@1.2
+      working-directory: ./master
