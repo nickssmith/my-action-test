@@ -33,4 +33,3 @@ jobs:
     - name: TODO and commented out code checker
       if: always()
       uses: nickssmith/TODO_and_CommentedCode_Check@1.2
-      working-directory: ./master
