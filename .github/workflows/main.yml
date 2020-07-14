@@ -29,3 +29,14 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
+        jobs:
+          
+  makepdfs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+    # converts all md to pdf
+    - name: Markdown to PDF
+      uses: valtyr/pandoc-action@v0.1-alpha
