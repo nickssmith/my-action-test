@@ -24,8 +24,8 @@ jobs:
       uses: bo-sfl/my-hello-world-action@prod
 
     - name: Release check
-    id: release_check
-    uses: bo-sfl/my-hello-world-action@prod
+      id: release_check
+      uses: bo-sfl/my-hello-world-action@prod
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
