@@ -37,7 +37,7 @@ jobs:
         name: Pre_release_check_log
         path: pre_release_check.log
 
-  Compare readme pdf:
+  Compare-readme-pdf:
     runs-on: ubuntu-latest
     steps:
     - name: Fetch the current master
