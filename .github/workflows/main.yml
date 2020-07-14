@@ -59,9 +59,10 @@ jobs:
       uses: valtyr/pandoc-action@v0.1-alpha
 
     - uses: actions/upload-artifact@v2
+      if: always()
       with:
-      name: my-artifact
-      path: README.pdf
+        name: my-artifact
+        path: README.pdf
 
     - name: Comapre PDF
       if: always()
