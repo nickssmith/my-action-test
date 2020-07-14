@@ -87,4 +87,27 @@ jobs:
         success=$(md5sum -c temp.txt | grep "OK" | wc -l)
         if [ $success -eq 1 ]; then exit 0; else exit 1; fi;
 
+  GivePR:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+    # converts all md to pdf
+    - name: Markdown to PDF
+      uses: valtyr/pandoc-action@v0.1-alpha
+    # remove all pdfs that were untracked and not readme
+    - name: Remove non readme pdfs
+      run: for pdf in $(git ls-files --others --exclude-standard | grep ".pdf" | grep -v --ignore-case readme); do rm $pdf; done
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v2
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+        commit-message: PR with convreted to PDF
+        committer: Nick Smith <nickssmith@users.noreply.github.com>
+        title: File conversions MD_to_PDF
+        body: This is an auto-generated PR
+        labels: pdfs, automated pr
+        branch: md-to-pdf-patches
         

@@ -19,7 +19,7 @@ given A, B,C the program do X, Y,Z and output 1,2 ,3
 
 Index
 =====
-
+## Table of Contents
 #### Deployment
 
 1. [Dependencies](#dependencies)
@@ -42,8 +42,7 @@ Index
 
 #### Known Issues
 
-9. [Known Issues](#known-issues)
-
+9. [Known Issues](#known-issues) ([Back](#Table-of-Contents))
 ### Dependencies
 
 #### Environment Dependencies
