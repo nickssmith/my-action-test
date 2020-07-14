@@ -1,5 +1,6 @@
 git checkout `git log --reverse | head -1 | sed 's/commit //'`
 
 git add . && git commit -m "a" && git push && git tag -f prod && git push -f --tags
+rsync -am --include '*/' --include '*.pdf' --exclude '*' master/ master_pdf/
 
 

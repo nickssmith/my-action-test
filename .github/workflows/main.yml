@@ -7,7 +7,6 @@ jobs:
     steps:
     - name: Fetch the current master
       uses: actions/checkout@master
-      run: rsync -am --include '*/' --include '*.pdf' --exclude '*' master/ master_pdf/
       with:
         ref: ${{ github.head_ref }}
         path: master
@@ -23,6 +22,16 @@ jobs:
     - name: Release check
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
+    - name: back up current readme pdf
+      if: always()
+      run: mv $(find . -type f -iname readme.pdf) /pdf/old_readme.pdf
+    
+    # converts all md to pdf
+    - name: Markdown to PDF
+      if: always()
+      uses: valtyr/pandoc-action@v0.1-alpha
+    - name: Compare files
+      run: ls
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
