@@ -32,6 +32,7 @@ jobs:
         jobs:
     - name: Upload artifact
       uses: actions/upload-artifact@v1
+      if: always()
       with:
         name: log
         path: pre_release_check.log
