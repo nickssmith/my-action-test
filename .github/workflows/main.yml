@@ -22,17 +22,10 @@ jobs:
     - name: Release check
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
-    - name: back up current readme pdf
-      if: always()
-      run: mv $(find . -type f -iname readme.pdf) /pdf/old_readme.pdf
-    
-    # converts all md to pdf
-    - name: Markdown to PDF
-      if: always()
-      uses: valtyr/pandoc-action@v0.1-alpha
-    - name: Compare files
-      if: always()
-      run: ls
+
+    - name: Release check
+    id: release_check
+    uses: bo-sfl/my-hello-world-action@prod
 
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
@@ -47,3 +40,29 @@ jobs:
       with:
         name: Pre_release_check_log
         path: pre_release_check.log
+
+  Compare readme pdf:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Fetch the current master
+      uses: actions/checkout@master
+      with:
+        ref: ${{ github.head_ref }}
+        lfs: True
+
+    - name: Get md5sum for current readme pdf
+      if: always()
+      run: md5sum $(find . -type f -iname readme.pdf) > temp.txt
+
+    - name: Markdown to PDF
+      if: always()
+      uses: valtyr/pandoc-action@v0.1-alpha
+
+    - uses: actions/upload-artifact@v2
+      with:
+      name: my-artifact
+      path: README.pdf
+
+    - name: Comapre PDF
+      if: always()
+      run: md5sum -c temp.txt
