@@ -7,12 +7,6 @@
 [![Build Status](https://travis-ci.org/anfederico/Clairvoyant.svg?branch=master)](https://travis-ci.org/anfederico/Clairvoyant)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 
-## Purpose (filled out at beginning)
-
-- The purpose of this project is ________.
-- Describe the main goals of the project and potential business impact.
-- Limit to a short paragraph, 3-6 Sentences.
-
 ## Project Description (filled out at beginning)
 
 given A, B,C the program do X, Y,Z and output 1,2 ,3
@@ -111,7 +105,6 @@ To run the inference pipeline, run ________.
 ##### Section A
 
 * XXX
-* XXX
 
 ##### Section B
 
@@ -163,7 +156,6 @@ To run:
     │   │
     │   ├── datasets           <- Scripts to download or generate data: your dataset related code should go into this folder.
     │   │   └── dataset1.py: Script for data IO and processing
-    │   │   └── dataset2.py: Script for data IO and processing
     │   │
     │   ├── models         <- Scripts to train models and then use trained models to make
     │   │   │                 predictions
@@ -200,7 +192,6 @@ To run:
     │   │   └── test_transform.py: Transforms used in the image preprocessing pipeline
     │   ├── validation           <- Unite test for your validation pipeline objects: update it when you works your own SFL project.
     │   │   └── test_validate1.py: fill me
-    │   │   └── test_validate2.py: fill me
 
 ### 4. Notes
 ([Return to Table of Contents](#Table-of-Contents))\
