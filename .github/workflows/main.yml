@@ -30,7 +30,11 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
         jobs:
-          
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: log
+        path: pre_release_check.log
   makepdfs:
     runs-on: ubuntu-latest
     steps:
