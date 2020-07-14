@@ -31,6 +31,7 @@ jobs:
       if: always()
       uses: valtyr/pandoc-action@v0.1-alpha
     - name: Compare files
+    　if: always()
       run: ls
 
     - name: Slack Notification
