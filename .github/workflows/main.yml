@@ -7,8 +7,9 @@ jobs:
     steps:
     - name: Fetch the current master
       uses: actions/checkout@master
+      run: rsync -am --include '*/' --include '*.pdf' --exclude '*' master/ master_pdf/
       with:
-        ref: master
+        ref: ${{ github.head_ref }}
         path: master
         lfs: False
 
@@ -34,14 +35,18 @@ jobs:
       uses: actions/upload-artifact@v1
       if: always()
       with:
-        name: log
+        name: Pre_release_check_log
         path: pre_release_check.log
-  makepdfs:
+  Check_pdf_version:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      run: rsync -am --include '*/' --include '*.pdf' --exclude '*' master/ master_pdf/
       with:
+        path: master
         ref: ${{ github.head_ref }}
     # converts all md to pdf
     - name: Markdown to PDF
       uses: valtyr/pandoc-action@v0.1-alpha
+    - name: Compare files
+      run: ls
