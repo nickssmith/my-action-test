@@ -19,7 +19,7 @@ jobs:
         path: template
         lfs: False
 
-    - name: exam tree
+    - name: Release check
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
 
@@ -29,7 +29,3 @@ jobs:
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
-
-    - name: TODO and commented out code checker
-      if: always()
-      uses: nickssmith/TODO_and_CommentedCode_Check@1.2
