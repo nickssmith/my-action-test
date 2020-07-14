@@ -7,8 +7,13 @@
 [![Build Status](https://travis-ci.org/anfederico/Clairvoyant.svg?branch=master)](https://travis-ci.org/anfederico/Clairvoyant)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
 
+## Purpose (filled out at beginning)
 
-### Project Description (filled out at beginning)
+- The purpose of this project is ________.
+- Describe the main goals of the project and potential business impact.
+- Limit to a short paragraph, 3-6 Sentences.
+
+## Project Description (filled out at beginning)
 
 given A, B,C the program do X, Y,Z and output 1,2 ,3
 
@@ -20,32 +25,25 @@ given A, B,C the program do X, Y,Z and output 1,2 ,3
 Index
 =====
 ## Table of Contents
-#### Deployment
+1. [Deployment](#1-Deployment)\
+	1.1 [Environment Dependencies](#11-Environment-Dependencies)\
+    1.2 [Docker Registry Dependencies](#12-Docker-Registry-Dependencies)\
+    1.3 [Data Dependencies](#13-Data-Dependencies)\
+    1.4 [Installation](#14-Installation)
+2. [Usage](#2-Usage)\
+	2.1 [Training Usage](#21-Training-Usage)\
+    2.2 [Inference Usage](#22-Inference-Usage)\
+    2.3 [Configuration](#23-Configuration)\
+    2.4 [Training Validation](#24-Training-Validation)
+3. [Project Contents](#3-Project-Contents)
+4. [Notes](#4-Notes)
+5. [Known Issues](#5-Known-Issues)
+6. [Contacts](#6-Contacts)
 
-1. [Dependencies](#dependencies)
-2. [Installation](#installation)
 
-#### Usage Instructions
-
-3. [Training Usage](#training-usage)
-4. [Inference Usage](#inference-usage)
-5. [Configuration](#configuration)
-6. [Training Validation](#training-validation)
-
-#### Project Content
-
-7. [Project Content](#project-content)
-
-#### Notes
-
-8. [Notes](#notes)
-
-#### Known Issues
-
-9. [Known Issues](#known-issues) ([Back](#Table-of-Contents))
-### Dependencies
-
-#### Environment Dependencies
+## 1. Deployment
+([Return to Table of Contents](#Table-of-Contents))
+### 1.1 Environment Dependencies
 
 (filled out when end-to-end testing commences) 
 
@@ -55,28 +53,36 @@ Index
 - Limit to a short paragraph, 3-6 Sentences.
 
 
-#### Docker Registry Dependencies
-
-- The docker registry address is updated.
-- The docker registry credential is updated.
-- Instruction to login registry: updated.
-
-#### Data Dependencies
+### 1.2 Docker Registry Dependencies
 
 (filled out when end-to-end testing commences) 
 
-* For training, the input data is updated, which is A/B/C in configuration section X/Y/Z.
-* For inference, the input data is updated, which is A/B/C in configuration section X/Y/Z.
+- The docker registry address is ________.
+- The docker registry credential is ________.
+- Instruction to login registry: ________.
+
+### 1.3 Data Dependencies
+
+(filled out when end-to-end testing commences) 
+
+* For training, the input data is ________, which is A/B/C in configuration section X/Y/Z.
+* For inference, the input data is ________, which is A/B/C in configuration section X/Y/Z.
 - Describe the input data/external data dependencies(e.g: pretrained model weight) for each functionality.
 
-### Installation
+### 1.4 Installation
 
 (filled out when end-to-end testing commences) 
 
 * To install the program, run ________.
 - Describe the necessary steps(e.g: docker build/run) to install the program.
 
-### Training Usage
+
+## 2. Usage
+([Return to Table of Contents](#Table-of-Contents))
+
+Information on each feature provided by your application, these may vary from the following example subsections.
+
+### 2.1 Training Usage
 
 (filled out when end-to-end testing commences) 
 
@@ -85,7 +91,7 @@ To run the training pipeline, run ________.
 - Describe the necessary steps(e.g: docker build/run) to run training pipeline.
 - For data dependencies, specify which configuration in which configuration file need to be updated.
 
-### Inference Usage
+### 2.2 Inference Usage
 
 (filled out when end-to-end testing commences) 
 
@@ -94,7 +100,7 @@ To run the inference pipeline, run ________.
 - Describe the necessary steps(e.g: docker build/run) to run inference pipeline.
 - For data dependencies, specify which configuration in which configuration file need to be updated.
 
-### Configuration
+### 2.3 Configuration
 
 (filled out when end-to-end testing commences) 
 
@@ -122,7 +128,7 @@ To run the inference pipeline, run ________.
 
 * XXX
 
-### Training Validation
+### 2.4. Training Validation
 
 Overview: fill me
 
@@ -131,7 +137,8 @@ To run:
 1. fill me
 2. fill me
 
-### Project Contents
+### 3. Project Contents
+([Return to Table of Contents](#Table-of-Contents))
 
     ├── LICENSE
     ├── README.md          <- The top-level README for developers using this project.
@@ -195,11 +202,16 @@ To run:
     │   │   └── test_validate1.py: fill me
     │   │   └── test_validate2.py: fill me
 
-
-### Known Issues
-
+### 4. Notes
+([Return to Table of Contents](#Table-of-Contents))\
 (filled out when end-to-end testing commences)
 
-### Contacts (tagged list)
+### 5. Known Issues
+([Return to Table of Contents](#Table-of-Contents))\
+(filled out when end-to-end testing commences)
+
+### 6. Contacts
+([Return to Table of Contents](#Table-of-Contents))
+
     - Developers
     - SFL Scientific founders (Mike, Mike, Dan)
