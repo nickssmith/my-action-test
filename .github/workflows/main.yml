@@ -62,4 +62,7 @@ jobs:
 
     - name: Comapre PDF
       if: always()
-      run: md5sum -c temp.txt
+      run: |
+        ls
+        cat temp.txt
+        md5sum -c temp.txt
