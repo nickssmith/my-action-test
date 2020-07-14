@@ -84,6 +84,7 @@ jobs:
     - name: Comapre PDF
       if: always()
       run: |
-        ls master
-        cat temp.txt
-        md5sum -c temp.txt
+        success=$(md5sum -c temp.txt | grep "OK" | wc -1)
+        if [ $success -eq 1 ]; then exit 0; else exit 1; fi;
+
+        
