@@ -46,16 +46,3 @@ jobs:
       with:
         name: Pre_release_check_log
         path: pre_release_check.log
-  Check_pdf_version:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-      run: rsync -am --include '*/' --include '*.pdf' --exclude '*' master/ master_pdf/
-      with:
-        path: master
-        ref: ${{ github.head_ref }}
-    # converts all md to pdf
-    - name: Markdown to PDF
-      uses: valtyr/pandoc-action@v0.1-alpha
-    - name: Compare files
-      run: ls
