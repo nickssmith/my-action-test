@@ -23,6 +23,27 @@ jobs:
       id: release_check
       uses: bo-sfl/my-hello-world-action@prod
 
+    - name: Get md5sum for current readme pdf
+      if: always()
+      run: md5sum $(find . -type f -iname readme.pdf) > temp.txt
+
+    - name: Markdown to PDF
+      if: always()
+      uses: valtyr/pandoc-action@v0.1-alpha
+
+    - uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: my-artifact
+        path: README.pdf
+
+    - name: Comapre PDF
+      if: always()
+      run: |
+        ls master
+        cat temp.txt
+        md5sum -c temp.txt
+
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@master
       if: always()
@@ -63,6 +84,6 @@ jobs:
     - name: Comapre PDF
       if: always()
       run: |
-        ls
+        ls master
         cat temp.txt
         md5sum -c temp.txt
