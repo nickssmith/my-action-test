@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   release: 
     types: [published, unpublished, created, edited, deleted, prereleased, released]
-  create:
+  push:
     tag:
       branches:
         - master
