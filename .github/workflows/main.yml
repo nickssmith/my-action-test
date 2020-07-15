@@ -2,13 +2,9 @@ name: Pre-release-checks
 on:
   workflow_dispatch:
   release: 
-    types: [published, unpublished, created, edited, deleted, prereleased, released]
-  push:
-    tag:
-      branches:
-        - master
+    types: [created, prereleased]
 
-
+  
 jobs:
   Pre-release-checks:
     runs-on: ubuntu-latest
