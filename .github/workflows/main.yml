@@ -1,7 +1,6 @@
 name: Pre-release-checks
 on: 
   release:
-  create:
 
 jobs:
   Pre-release-checks:
