@@ -23,7 +23,7 @@ jobs:
 
     - name: Release check
       id: release_check
-      uses: bo-sfl/pre-relase-checks
+      uses: bo-sfl/pre-relase-checks@prod
 
     - name: Get md5sum for current readme pdf
       if: always()
