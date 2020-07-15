@@ -1,6 +1,6 @@
 name: Pre-release-checks
 on: 
-  release
+  release:
   create:
     tag
 
