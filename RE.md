@@ -24,7 +24,7 @@ Index
 
 1. [Dependencies](#dependencies)
 2. [Installation](#installation)
-21
+
 #### Usage Instructions
 
 3. [Training Usage](#training-usage)
