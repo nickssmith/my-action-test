@@ -1,8 +1,13 @@
 name: Pre-release-checks
-on: 
-  release:
+on:
   workflow_dispatch:
+  release: 
+    types: [published, unpublished, created, edited, deleted, prereleased, released]
   create:
+    tag:
+      branches:
+        - master
+
 
 jobs:
   Pre-release-checks:
@@ -11,7 +16,6 @@ jobs:
     - name: Fetch the current master
       uses: actions/checkout@master
       with:
-        ref: ${{ github.head_ref }}
         path: master
         lfs: False
 
