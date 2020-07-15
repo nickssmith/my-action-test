@@ -21,51 +21,7 @@ jobs:
 
     - name: Release check
       id: release_check
-      uses: bo-sfl/my-hello-world-action@prod
-
-    - name: Get md5sum for current readme pdf
-      if: always()
-      run: md5sum $(find . -type f -iname readme.pdf) > temp.txt
-
-    - name: Markdown to PDF
-      if: always()
-      uses: valtyr/pandoc-action@v0.1-alpha
-
-    - uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: my-artifact
-        path: README.pdf
-
-    - name: Comapre PDF
-      if: always()
-      run: |
-        ls master
-        cat temp.txt
-        md5sum -c temp.txt
-
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      if: always()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
-        jobs:
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1
-      if: always()
-      with:
-        name: Pre_release_check_log
-        path: pre_release_check.log
-
-  Compare-readme-pdf:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Fetch the current master
-      uses: actions/checkout@master
-      with:
-        ref: ${{ github.head_ref }}
-        lfs: True
+      uses: bo-sfl/pre-relase-checks
 
     - name: Get md5sum for current readme pdf
       if: always()
@@ -87,27 +43,18 @@ jobs:
         success=$(md5sum -c temp.txt | grep "OK" | wc -l)
         if [ $success -eq 1 ]; then exit 0; else exit 1; fi;
 
-  GivePR:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      if: always()
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      if: always()
       with:
-        ref: ${{ github.head_ref }}
-    # converts all md to pdf
-    - name: Markdown to PDF
-      uses: valtyr/pandoc-action@v0.1-alpha
-    # remove all pdfs that were untracked and not readme
-    - name: Remove non readme pdfs
-      run: for pdf in $(git ls-files --others --exclude-standard | grep ".pdf" | grep -v --ignore-case readme); do rm $pdf; done
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-        commit-message: PR with convreted to PDF
-        committer: Nick Smith <nickssmith@users.noreply.github.com>
-        title: File conversions MD_to_PDF
-        body: This is an auto-generated PR
-        labels: pdfs, automated pr
-        branch: md-to-pdf-patches
+        name: Pre_release_check_log
+        path: pre_release_check.log
+
         
