@@ -1,6 +1,8 @@
 name: Pre-release-checks
 on: 
   release:
+  workflow_dispatch:
+  create:
 
 jobs:
   Pre-release-checks:
