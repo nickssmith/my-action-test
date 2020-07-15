@@ -1,7 +1,8 @@
 name: Pre-release-checks
 on: 
-  release:
-    types: [published, created]
+  release
+  create:
+    tag
 
 jobs:
   Pre-release-checks:
