@@ -1,12 +1,6 @@
 name: Pre-release-checks
 on:
   workflow_dispatch:
-  # release: 
-  #   types: [published, unpublished, created, edited, deleted, prereleased, released]
-  push:
-    tag:
-      branches:
-        - master
 
 
 jobs:
@@ -31,31 +25,20 @@ jobs:
       uses: bo-sfl/pre-relase-checks@prod
 
     - name: Get md5sum for current readme pdf
-      if: always()
       run: md5sum $(find . -type f -iname readme.pdf) > temp.txt
 
     - name: Markdown to PDF
-      if: always()
       uses: valtyr/pandoc-action@v0.1-alpha
 
     - uses: actions/upload-artifact@v2
-      if: always()
       with:
         name: my-artifact
         path: README.pdf
 
     - name: Comapre PDF
-      if: always()
       run: |
         success=$(md5sum -c temp.txt | grep "OK" | wc -l)
         if [ $success -eq 1 ]; then exit 0; else exit 1; fi;
-
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
-      if: always()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        SLACK_MESSAGE: ${{ steps.release_check.outputs.message }}
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1
