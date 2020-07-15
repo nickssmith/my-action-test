@@ -1,5 +1,7 @@
 name: Pre-release-checks
-on: [workflow_dispatch]
+on: 
+  release:
+    types: [published, created]
 
 jobs:
   Pre-release-checks:
