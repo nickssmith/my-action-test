@@ -1,8 +1,8 @@
 name: Pre-release-checks
 on:
   workflow_dispatch:
-  release: 
-    types: [published, unpublished, created, edited, deleted, prereleased, released]
+  # release: 
+  #   types: [published, unpublished, created, edited, deleted, prereleased, released]
   push:
     tag:
       branches:
