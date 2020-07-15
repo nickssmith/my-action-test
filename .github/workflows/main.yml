@@ -2,7 +2,6 @@ name: Pre-release-checks
 on: 
   release:
   create:
-    tag
 
 jobs:
   Pre-release-checks:
