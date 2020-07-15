@@ -1,7 +1,13 @@
 name: Pre-release-checks
 on:
   workflow_dispatch:
-
+  create:
+    tag:
+      branch:
+        - master
+  release:
+    types:[created, prereleased]
+  
 
 jobs:
   Pre-release-checks:
